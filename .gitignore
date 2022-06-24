@@ -1,4 +1,7 @@
 venv/
 /__pycache__/
-django-alura/aluraReceita/__pychache__/
+/aluraReceita/__pychache__/
+appCore/migrations/__pycache__/
+appCore/__pycache__/
+
 .idea/
