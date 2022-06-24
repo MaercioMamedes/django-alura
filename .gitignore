@@ -1,7 +1,6 @@
 venv/
-/__pycache__/
-/aluraReceita/__pychache__/
+__pycache__/
+aluraReceita/__pycache__/
 appCore/migrations/__pycache__/
 appCore/__pycache__/
-
 .idea/
