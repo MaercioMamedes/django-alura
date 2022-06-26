@@ -5,8 +5,7 @@ from .models import Recipe
 # views of app.
 
 def index(request):
-    recipe_list = Recipe.objects.all()
-    print(recipe_list)
+    recipe_list = Recipe.objects.order_by('-date_recipe').filter(published=True)
     recipe_list_show = {
         'recipe_list': recipe_list
     }

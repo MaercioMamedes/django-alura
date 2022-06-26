@@ -12,6 +12,8 @@ class Recipe(models.Model):
     efficiency = models.CharField('Rendimento', max_length=100)
     category = models.CharField('Categoria', max_length=100)
     date_recipe = models.DateTimeField('data da publicação', default=datetime.now, blank=True)
+    picture_recipe = models.ImageField('Foto', upload_to='pictures/%d/%m/%Y', blank=True)
+    published = models.BooleanField('Publicado', default=False)
 
     def __str__(self):
         return self.name_recipe
