@@ -123,5 +123,6 @@ STATICFILES_DIRS = [
 ]
 
 # Media
+"""Verificar documentação"""
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'

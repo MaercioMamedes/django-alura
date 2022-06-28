@@ -6,6 +6,7 @@ from .models import Recipe
 
 def index(request):
     recipe_list = Recipe.objects.order_by('date_recipe').filter(published=True)
+
     recipe_list_show = {
         'recipe_list': recipe_list
     }

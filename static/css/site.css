@@ -678,7 +678,13 @@ textarea:focus {
   position: relative;
   z-index: 1; }
   .single-best-receipe-area img {
-    border-bottom: 3px solid #40ba37; }
+    border-bottom: 3px solid #40ba37;
+    height: 200px;
+    width: 200px;}
+  
+
+
+    
   .single-best-receipe-area .receipe-content {
     padding-top: 30px;
     text-align: center; }
@@ -695,6 +701,7 @@ textarea:focus {
       color: #fbb710;
       display: inline-block;
       padding: 0 1px; }
+
 
 /* :: 9.0 Cta Area */
 .cta-area {
