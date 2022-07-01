@@ -1,5 +1,7 @@
 .single-best-receipe-area img {
     height: 200px;
-    width: 200px;
+    width: 300px;
     margin: auto;
+    border-radius: 10px;
+    box-shadow: 0px 0px 4px 0px black;
 }

@@ -11,7 +11,7 @@ def index(request):
         'recipe_list': recipe_list
     }
 
-    return render(request, 'index.html', recipe_list_show)
+    return render(request, 'appCore/index.html', recipe_list_show)
 
 
 def recipe(request, recipe_id):
@@ -20,7 +20,7 @@ def recipe(request, recipe_id):
         'recipe': recipe_object,
     }
 
-    return render(request, 'receita.html', recipe_show)
+    return render(request, 'appCore/receita.html', recipe_show)
 
 
 def search(request):

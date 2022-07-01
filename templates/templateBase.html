@@ -28,6 +28,14 @@
         <img src="{% static 'img/core-img/pizza.png' %}" alt="">
     </div>
 
+    {% if messages %}
+        <ul class="alert alert-success">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+
     <!-- Search Wrapper -->
     <div class="search-wrapper">
         <!-- Close Btn -->
@@ -104,6 +112,8 @@
                             <div class="classynav">
                                 <ul>
                                     <li><a href="{% url 'index' %}">Home</a></li>
+                                    <li><a href="{% url 'register' %}">Cadastro</a></li>
+                                    <li><a href="{% url 'login' %}">Login</a></li>
                                 </ul>
 
                                 <!-- Formulario de busca -->
