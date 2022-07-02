@@ -29,11 +29,11 @@
     </div>
 
     {% if messages %}
-        <ul class="alert alert-success">
         {% for message in messages %}
-            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            <div class="alert alert-{{message.tags}}" role="alert">
+                {{ message }}
+            </div>
         {% endfor %}
-        </ul>
     {% endif %}
 
     <!-- Search Wrapper -->
@@ -111,9 +111,15 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li><a href="{% url 'index' %}">Home</a></li>
-                                    <li><a href="{% url 'register' %}">Cadastro</a></li>
-                                    <li><a href="{% url 'login' %}">Login</a></li>
+                                    {% if user.is_authenticated %}
+                                        <li><a href="{% url 'index' %}">Página principal</a></li>
+                                        <li><a href="{% url 'dashboard' %}">Minhas receitas</a></li>
+                                        <li><a href="{% url 'create_recipe' %}">Criar receitas</a></li>
+                                        <li><a href="{% url 'logout' %}">logout</a></li>
+                                    {% else %}
+                                        <li><a href="{% url 'register' %}">Cadastro</a></li>
+                                        <li><a href="{% url 'login' %}">Login</a></li>
+                                    {% endif %}
                                 </ul>
 
                                 <!-- Formulario de busca -->

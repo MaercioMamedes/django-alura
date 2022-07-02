@@ -1,0 +1,36 @@
+{% extends 'templateBase.html' %}
+{% load static %}
+{% block content %}
+
+
+
+    <!-- ##### Best Receipe Area Start ##### -->
+    <section class="best-receipe-area">
+        <div class="container">
+            <div class="row">
+                {% if recipes %}
+                {% for recipe in recipes %}
+                <!-- Single Best Receipe Area -->
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="single-best-receipe-area mb-30">
+                        {% if recipe.picture_recipe == '' %}
+                            <img src="{% static 'img/bg-img/foto_receita.png' %}" alt="">
+                        {% else %}
+                            <img src="{{ recipe.picture_recipe.url }}" alt="">
+                        {% endif %}
+                            <div class="receipe-content">
+                            <a href="{% url 'recipe' recipe.id %}">
+                                <h5>{{ recipe.name_recipe }}</h5>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                {% else %}
+                {% endif %}
+            </div>
+        </div>
+    </section>
+    <!-- ##### Best Receipe Area End ##### -->
+
+{% endblock %}
