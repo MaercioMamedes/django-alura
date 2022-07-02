@@ -20,20 +20,20 @@
                         {% csrf_token %}
 
                         <div class="row">
-                            <h3>Escolha com quer fazer o login</h3>
-                            <div class="col-12 col-lg-12">
+                            <h3>Escolha como deseja fazer o login</h3>
+                            <div id="selector-login" class="col-12 col-lg-12">
 
                                 <label for="email">Por email</label>
-                                <input type="radio" name="type_login"id="email" value="email">
+                                <input type="radio" name="type_login"id="email" value="email" onclick="toEmail()">
 
                                 <label for="username">Por usuário</label>
-                                <input type="radio" name="type_login" id="username" value="username" checked>
+                                <input type="radio" name="type_login" id="username" value="username" onclick="toUserName()" checked>
                             </div>    
                         </div>
 
                         <div class="row">
                             <div class="col-12 col-lg-12">
-                            <label for="user_login"><b>Usuário</b></label>
+                            <label  for="user_login"><b id="label-login">Usuário</b></label>
                                 <input type="text" id="user_login" class="form-control" name="user_login" placeholder="Entre com o usuário cadastrado">
                             </div>
                                 <div class="col-12 col-lg-12">
