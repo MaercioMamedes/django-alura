@@ -34,7 +34,10 @@ def execute_login(request, user_login, user_password):
 
 def check_user(user_login):
     if User.objects.filter(email=user_login).exists():
-        return User.objects.filter(email=user_login).values_list('username', flat=True).get()
+        
+         # O parâmetro flat = True garante que apenas o campo username será o resultado
+        return User.objects.filter(email=user_login).values_list('username', flat=True).get()  
+       
 
     else:
         return False
