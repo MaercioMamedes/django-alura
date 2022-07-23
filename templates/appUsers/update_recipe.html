@@ -1,0 +1,93 @@
+{% extends 'templateBase.html' %} 
+{% load static %} 
+
+{% block content %} 
+
+<!-- ##### Contact Form Area Start ##### -->
+
+<div class="contact-area section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-heading">
+                    <h3>Edite aqui sua receita, {{ user.username }} :)</h3>
+                </div>
+            </div>
+        </div>
+ 
+
+        <div class="row">
+            <div class="col-12">
+            <p>Todos os campos são obrigatórios</p>
+                <div class="contact-form-area">
+                    <form action="{% url 'finished_update_recipe' %}" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <input type="text" id="receita_id" class="form-control" name="recipe_id" value="{{recipe.id}}" hidden>
+                        <div class="row">
+                            <div class="col-12 col-lg-12">
+                                <label for="nome_receita"><b>Título da receita</b></label>
+                                <input type="text" id="name_recipe" class="form-control" name="name_recipe" placeholder="Ex. Suco de limão" value="{{ recipe.name_recipe }}" required>
+                            </div>
+                            <div class="col-12">
+                                <label for="file"><b>Ingredientes</b></label>
+                                <textarea class="form-control" name="ingredients" cols="30" rows="10" placeholder="Ex. 2 Limões &#10;200ml de água" required>{{ recipe.ingredients }}</textarea>
+                            </div>
+                            <div class="col-12">
+                                <label for="file"><b>Modo de preparo</b></label>
+                                <textarea class="form-control" name="preparation_mode" cols="30" rows="10" placeholder="Ex. Corte o limão com cuidado e exprema no copo  &#10;Misture com a água e sirva." required>{{ recipe.preparation_mode }}</textarea>
+                            </div>
+                            <div class="col-12 col-lg-4">
+                                <label for="file"><b>Tempo de preparo (minutos)</b></label>
+                                <input type="number" class="form-control" name="preparation_time" placeholder="Ex. 2" value="{{ recipe.preparation_time }}"  required>
+                            </div>
+                            <div class="col-12 col-lg-4">
+                                <label for="file"><b>Rendimento</b></label>
+                                <input type="text" class="form-control" name="efficiency" placeholder="Ex. serve 1 pessoa"  value="{{ recipe.efficiency }}" required>
+                            </div>
+                            <div class="col-12 col-lg-4">
+                                <label for="file"><b>Categoria da receita</b></label>
+                                <input type="text" class="form-control" name="category" placeholder="Ex. Sucos e bebidas"  value="{{ recipe.category }}" required>
+                            </div>
+                            <div class="col-12 col-lg-4">
+                                <label for="file"><b>Foto utilizada</b></label>
+                                <img src="{{ recipe.picture_recipe.url }}" alt="">
+                            </div>
+                            <div class="col-12 col-lg-4">
+                                <label for="file"><b>Adicionar nova foto</b></label>
+                                <input type="file" class="form-control" name="picture_recipe">
+                            </div>
+                            <div class="col-12 col-lg-4">
+                                <b>Deseja Publicar sua receita agora?</b>
+                                
+                                {% if recipe.published %}
+
+                                    <label for="publi-true">Sim</label>
+                                    <input type="radio" name="published" id="publi-true" value="True" checked>
+
+                                    <label for="publi-false">Não</label>
+                                    <input type="radio" name="published" id="publi-false" value="False">
+
+                                {% else %}
+
+                                    <label for="publi-true">Sim</label>
+                                    <input type="radio" name="published" id="publi-true" value="True" >
+
+                                    <label for="publi-false">Não</label>
+                                    <input type="radio" name="published" id="publi-false" value="False" checked>
+
+                                {% endif %} 
+
+                            </div>
+                            <div class="col-12 text-center">
+                                <button class="btn btn-success" type="submit">Atualizar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
