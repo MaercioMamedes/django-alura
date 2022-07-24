@@ -10,7 +10,7 @@ def start_update_recipe(request, recipe_id):
 
         data_ricipe = { 'recipe':recipe}
     
-        return render(request, 'appUsers/update_recipe.html', data_ricipe)
+        return render(request, 'appCore/update_recipe.html', data_ricipe)
 
 def finished_update_recipe(request):
 

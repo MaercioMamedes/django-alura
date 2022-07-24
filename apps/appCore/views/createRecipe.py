@@ -1,6 +1,7 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect, render, get_object_or_404
 from django.contrib import messages
 from appUsers.helpers import get_user
+from appUsers.models import UserApp
 from appCore.models import Recipe
 
 
@@ -13,6 +14,7 @@ def create_recipe(request):
         efficiency       = request.POST['efficiency']
         category         = request.POST['category']
         picture_recipe   = request.FILES['picture_recipe']
+        published        = request.POST['published']
         user             = get_user(request)
 
         recipe = Recipe.objects.create(
@@ -23,9 +25,18 @@ def create_recipe(request):
             preparation_time  = preparation_time, 
             efficiency        = efficiency,
             category          = category, 
-            picture_recipe    = picture_recipe)
+            picture_recipe    = picture_recipe,
+            published         = published
+            )
+
+
+        user_app = get_object_or_404(UserApp,user=user.id)
+        user_app.qtd_recipe += 1
+        user_app.save()
 
         recipe.save()
+
+        
 
         messages.success(request, 'Receita criada com sucesso !')
 
@@ -33,4 +44,4 @@ def create_recipe(request):
 
     else:
 
-        return render(request, 'appUsers/create_recipe.html')
+        return render(request, 'appCore/create_recipe.html')

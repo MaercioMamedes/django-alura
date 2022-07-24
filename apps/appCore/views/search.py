@@ -15,4 +15,4 @@ def search(request):
         'recipe_list': recipe_list
     }
 
-    return render(request, 'index.html', recipe_list_show)
+    return render(request, 'appCore/index.html', recipe_list_show)
