@@ -1,19 +1,22 @@
 from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404
 from django.contrib import auth
+from appUsers.models import UserApp
+from django.contrib.auth.models import User
 
 
-"""Checar campo em branco e verificação de dois fatores de cadastro"""
+
+"""Checar campo em branco"""
 
 def check_field_empty(field):
     return not field.strip()
 
+""" verificação de dois fatores de cadastro """
 def check_equality(data1, data2):
     if check_field_empty(data1) or check_field_empty(data2):
         return True
     
     return data1 != data2
-
 
 """Login em sessão"""
 
@@ -27,8 +30,6 @@ def execute_login(request, user_login, user_password):
     
     else:
         return False
-
-
 
 """Verifica se existe usuário"""
 
@@ -46,3 +47,20 @@ def check_user(user_login):
 
 def get_user(request):
     return get_object_or_404(User, pk=request.user.id)
+
+"""Fábrica de usuários"""
+
+def factor_user(data_user):
+  
+    """data_user = (full_name, user_name, email, password)"""   #metadata
+
+    new_user = User.objects.create_user(username=data_user[1], 
+                                        email   =data_user[2],
+                                        password=data_user[3],
+                                        )
+    new_user.save()
+
+    new_user_app = UserApp(user=new_user, full_name=data_user[0])
+
+    new_user_app.save()
+    
