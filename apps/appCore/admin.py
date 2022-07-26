@@ -3,7 +3,7 @@ from .models import *
 
 
 class ListingRecipes(admin.ModelAdmin):
-    list_display = ('id', 'name_recipe', 'category', 'published')
+    list_display = ('id', 'name_recipe', 'category', 'published', 'user')
     list_display_links = ('id', 'name_recipe', 'category')
     search_fields = ('name_recipe',)
     list_filter = ('category',)

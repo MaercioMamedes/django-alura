@@ -65,7 +65,16 @@
                         <div class="breaking-news">
                             <div id="breakingNewsTicker" class="ticker">
                                 <ul>
-                                    <li><a href="">Boas vindas!</a></li>
+                                    {% if not user.is_anonymous %}
+
+                                        <li><a href="{% url 'update_start' %}">Usuário Logado: <strong>{{ user }}</strong></a></li>
+
+                                    {% else %}
+
+                                        <li><a href=""><strong>Nenhum Usuário logado</strong></a></li>
+
+                                    {% endif %}
+
                                     <li><a href="">As melhores receitas</a></li>
                                     <li><a href="">Você encontra aqui!</a></li>
                                 </ul>
@@ -116,7 +125,7 @@
                                         <li><a href="{% url 'dashboard' %}">Minhas receitas</a></li>
                                         <li><a href="{% url 'create_recipe' %}">Criar receitas</a></li>
                                         <li><a href="{% url 'logout' %}">logout</a></li>
-                                        <li><a href="{% url 'teste' %}">Colaoradores</a></li>
+                                        <li><a href="{% url 'ranking' %}">Colaoradores</a></li>
                                         {% if user.is_superuser %}
                                         <li><a href="{% url 'admin:index' %}">admin</a></li>
                                         {% endif %}

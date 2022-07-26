@@ -9,3 +9,7 @@
 #selector-login label{
     margin: auto 16px;
 }
+
+tr{
+    text-align: center;
+}

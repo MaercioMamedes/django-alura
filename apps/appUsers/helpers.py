@@ -54,9 +54,15 @@ def factor_user(data_user):
   
     """data_user = (full_name, user_name, email, password)"""   #metadata
 
+    first_name = data_user[0].split()[0]
+
+    last_name = data_user[0].split()[-1]
+
     new_user = User.objects.create_user(username=data_user[1], 
                                         email   =data_user[2],
                                         password=data_user[3],
+                                        first_name=first_name,
+                                        last_name=last_name,
                                         )
     new_user.save()
 
