@@ -1,7 +1,9 @@
 from django.shortcuts import redirect, render
 from django.contrib import messages
-from appUsers.helpers import check_field_empty, execute_login, check_user
+from appUsers.helpers import check_field_empty, execute_login, check_user #the functions check_field_empty, execute_login, check_user, are their own methods
 
+
+"""view responsible for handling the login"""
 
 def login(request):
 
@@ -38,6 +40,5 @@ def login(request):
                 messages.error(request, 'Usuário ou senha incorretos')
                 return redirect('login')
                 
-
-    
     return render(request, 'appUsers/login.html')
+    

@@ -5,22 +5,25 @@ from appUsers.models import UserApp
 from django.contrib.auth.models import User
 
 
+"""module responsible for performing tasks related to AppUser in a decentralized way"""
 
-"""Checar campo em branco"""
 
 def check_field_empty(field):
+    #checks if the passed string is an empty value
+    
     return not field.strip()
 
-""" verificação de dois fatores de cadastro """
 def check_equality(data1, data2):
+    #double field check
+
     if check_field_empty(data1) or check_field_empty(data2):
         return True
     
     return data1 != data2
 
-"""Login em sessão"""
-
 def execute_login(request, user_login, user_password):
+    #start session
+
     user = auth.authenticate(request, username=user_login, password=user_password)
 
     if user is not None:
@@ -31,26 +34,24 @@ def execute_login(request, user_login, user_password):
     else:
         return False
 
-"""Verifica se existe usuário"""
-
 def check_user(user_login):
+    #check if there is a user
+
     if User.objects.filter(email=user_login).exists():
         
          # O parâmetro flat = True garante que apenas o campo username será o resultado
         return User.objects.filter(email=user_login).values_list('username', flat=True).get()  
        
-
     else:
         return False
 
-"""Retorna Usuário"""
-
 def get_user(request):
+    #search user e return if exist
+
     return get_object_or_404(User, pk=request.user.id)
 
-"""Fábrica de usuários"""
-
 def factor_user(data_user):
+    #new user factory
   
     """data_user = (full_name, user_name, email, password)"""   #metadata
 

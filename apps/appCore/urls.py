@@ -1,6 +1,7 @@
 from django.urls import path
 from appCore.views import *
 
+"""Routing appCore views"""
 
 urlpatterns = [
     path('', index, name='index'),

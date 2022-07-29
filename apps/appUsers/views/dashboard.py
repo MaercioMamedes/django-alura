@@ -1,6 +1,8 @@
 from django.shortcuts import  redirect, render
 from appCore.models import Recipe
 
+"""view responsible for displaying all recipes created by the logged in user."""
+
 def dashboard(request):
 
     if request.user.is_authenticated:

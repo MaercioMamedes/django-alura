@@ -1,8 +1,9 @@
 from django.shortcuts import redirect, render
 from django.contrib import messages
-from appUsers.helpers import check_field_empty, check_equality, factor_user
+from appUsers.helpers import check_field_empty, check_equality, factor_user #this functions are their own methods
 
 
+"""view responsible for rendering and processing user registration"""
 
 def register(request):
 

@@ -3,17 +3,23 @@ from django.contrib import messages
 from appCore.models import Recipe
 
 
+"""Views responsible for updating the recipes registered by the logged-in user"""
+
 
 def start_update_recipe(request, recipe_id):
 
-        recipe = get_object_or_404(Recipe, pk=recipe_id)
+    # renders recipe update page
 
-        data_ricipe = { 'recipe':recipe}
+    recipe = get_object_or_404(Recipe, pk=recipe_id)
+
+    data_ricipe = { 'recipe':recipe}
     
-        return render(request, 'appCore/update_recipe.html', data_ricipe)
+    return render(request, 'appCore/update_recipe.html', data_ricipe)
 
 def finished_update_recipe(request):
 
+    # execute recipe update
+    
     if request.method == 'POST':
            
         id = request.POST['recipe_id']

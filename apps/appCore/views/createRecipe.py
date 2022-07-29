@@ -4,6 +4,7 @@ from appUsers.helpers import get_user
 from appUsers.models import UserApp
 from appCore.models import Recipe
 
+"""View responsible for processing and rendering the creation of the Recipes model"""
 
 def create_recipe(request):
     if request.method == 'POST':
@@ -35,8 +36,6 @@ def create_recipe(request):
         user_app.save()
 
         recipe.save()
-
-        
 
         messages.success(request, 'Receita criada com sucesso !')
 

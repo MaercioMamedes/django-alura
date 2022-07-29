@@ -2,6 +2,8 @@ from django.contrib import admin
 from .models import *
 
 
+"""module responsible for configuring the views of application models within the App admin"""
+
 class ListingRecipes(admin.ModelAdmin):
     list_display = ('id', 'name_recipe', 'category', 'published', 'user')
     list_display_links = ('id', 'name_recipe', 'category')

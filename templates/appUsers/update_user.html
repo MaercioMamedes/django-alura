@@ -16,7 +16,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="contact-form-area">
-                    <form action="" method="POST">
+                    <form action="{% url 'update_finish' %}" method="POST">
                         {% csrf_token %}
                         <div class="row">
                             <div class="col-12 col-lg-12">

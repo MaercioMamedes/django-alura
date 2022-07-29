@@ -3,6 +3,8 @@ from datetime import datetime
 from django.contrib.auth.models import User
 
 
+"""Recipe data model struct"""
+
 class Recipe(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     name_recipe = models.CharField('Receita', max_length=200)
