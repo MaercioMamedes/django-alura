@@ -3,6 +3,7 @@ from django.contrib import messages
 from appUsers.helpers import get_user
 from appUsers.models import UserApp
 from appCore.models import Recipe
+from time import time
 
 """View responsible for processing and rendering the creation of the Recipes model"""
 
@@ -17,7 +18,7 @@ def create_recipe(request):
         picture_recipe   = request.FILES['picture_recipe']
         published        = request.POST['published']
         user             = get_user(request)
-
+    
         recipe = Recipe.objects.create(
             user              = user,
             name_recipe       = name_recipe,
