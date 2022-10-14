@@ -2,8 +2,8 @@ from django.db import models
 from datetime import datetime
 from django.contrib.auth.models import User
 
-
 """Recipe data model struct"""
+
 
 class Recipe(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -19,4 +19,3 @@ class Recipe(models.Model):
 
     def __str__(self):
         return self.name_recipe
-

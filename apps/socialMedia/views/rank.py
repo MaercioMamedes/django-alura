@@ -1,6 +1,6 @@
 import json
 from django.shortcuts import render
-from appUsers.models import UserApp
+from apps.appUsers.models import UserApp
 
 
 def ranking(request):

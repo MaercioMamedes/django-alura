@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from appCore.models import Recipe
+from apps.appCore.models import Recipe
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 

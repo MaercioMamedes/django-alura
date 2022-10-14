@@ -1,6 +1,6 @@
-import os, sys
+import os
+import sys
 from django.contrib.messages import constants as messages
-
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -19,9 +19,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'appCore',
-    'appUsers',
-    'socialMedia',
+    'apps.appCore',
+    'apps.appUsers',
+    'apps.socialMedia',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -118,7 +118,7 @@ STATICFILES_DIRS = [
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
-#Messages
+# Messages
 
 MESSAGE_TAGS = {
     messages.ERROR: 'danger',
@@ -126,6 +126,6 @@ MESSAGE_TAGS = {
     messages.INFO: 'info',
 }
 
-"""Diratórios das aplicações"""
+"""Diretórios das aplicações"""
 PROJECT_ROOT = os.path.dirname(__file__)
 sys.path.insert(0, os.path.join(PROJECT_ROOT, '../apps'))

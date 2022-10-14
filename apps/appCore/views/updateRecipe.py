@@ -1,27 +1,25 @@
 from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib import messages
-from appCore.models import Recipe
-
+from apps.appCore.models import Recipe
 
 """Views responsible for updating the recipes registered by the logged-in user"""
 
 
 def start_update_recipe(request, recipe_id):
-
     # renders recipe update page
 
     recipe = get_object_or_404(Recipe, pk=recipe_id)
 
-    data_ricipe = { 'recipe':recipe}
-    
+    data_ricipe = {'recipe': recipe}
+
     return render(request, 'appCore/update_recipe.html', data_ricipe)
 
-def finished_update_recipe(request):
 
+def finished_update_recipe(request):
     # execute recipe update
-    
+
     if request.method == 'POST':
-           
+
         id = request.POST['recipe_id']
         recipe = Recipe.objects.get(pk=id)
         recipe.name_recipe = request.POST['name_recipe']

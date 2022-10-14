@@ -1,9 +1,8 @@
 from django.shortcuts import render
-from appCore.models import Recipe
-
-
+from apps.appCore.models import Recipe
 
 """view responsible for searching recipes registered and published by all users"""
+
 
 def search(request):
     recipe_list = Recipe.objects.order_by('date_recipe').filter(published=True)

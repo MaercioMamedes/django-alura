@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404
 from django.contrib import auth
-from appUsers.models import UserApp
+from apps.appUsers.models import UserApp
 from django.contrib.auth.models import User
 
 

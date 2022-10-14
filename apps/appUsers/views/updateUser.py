@@ -1,8 +1,8 @@
-from appUsers.helpers import get_user
-from appUsers.models import UserApp
+from apps.appUsers.helpers import get_user
+from apps.appUsers.models import UserApp
 from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib import messages, auth
-from appUsers.helpers import check_field_empty, check_equality #this functions are their own methods
+from apps.appUsers.helpers import check_field_empty, check_equality #this functions are their own methods
 
 
 """views responsible for rendering and processing user data updates"""

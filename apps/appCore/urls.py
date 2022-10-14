@@ -1,5 +1,5 @@
 from django.urls import path
-from appCore.views import *
+from apps.appCore.views import *
 
 """Routing appCore views"""
 

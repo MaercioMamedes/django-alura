@@ -24,7 +24,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('appCore.urls')),
-    path('users/', include('appUsers.urls')),
-    path('socialMedia/', include('socialMedia.urls')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) #Rotas dos arquivos de mídias(imagens)
+    path('', include('apps.appCore.urls')),
+    path('users/', include('apps.appUsers.urls')),
+    path('socialMedia/', include('apps.socialMedia.urls')),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)  # Rotas dos arquivos de mídias(imagens)
